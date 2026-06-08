@@ -403,43 +403,6 @@ html[dir="rtl"] .side-menu{
 }
 
 
-.visitor-counter{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:14px;
-  flex-wrap:wrap;
-  margin:0 0 16px;
-  font-weight:800;
-  color:#07304f;
-}
-
-.visitor-counter span{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  padding:8px 14px;
-  border-radius:999px;
-  background:rgba(255,255,255,.72);
-  box-shadow:0 6px 18px rgba(0,0,0,.08);
-}
-
-body.a11y-dark .visitor-counter,
-body.a11y-contrast .visitor-counter{
-  color:#fff !important;
-}
-
-body.a11y-dark .visitor-counter span{
-  background:rgba(0,0,0,.82)!important;
-  border:1px solid rgba(255,255,255,.45)!important;
-}
-
-body.a11y-contrast .visitor-counter span{
-  background:#000 !important;
-  color:#fff !important;
-  border:2px solid #fff !important;
-  box-shadow:none !important;
-}
 
 footer{
   margin-top:50px;
@@ -792,11 +755,6 @@ footer a{
 </div>
 
 <footer>
-  <div class="visitor-counter" aria-label="Visitor counter">
-    <span>🎵 <span data-en="Today:" data-he="היום:">Today:</span> <strong id="todayVisitors">—</strong></span>
-    <span>🌍 <span data-en="Total Visitors:" data-he="סה״כ מבקרים:">Total Visitors:</span> <strong id="totalVisitors">—</strong></span>
-  </div>
-
   <div>
     <a href="terms.html" data-en="Terms" data-he="תקנון">Terms</a>
     <a href="privacy.html" data-en="Privacy" data-he="פרטיות">Privacy</a>
@@ -807,78 +765,6 @@ footer a{
 
 </div>
 
-
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-import {
-  getFirestore,
-  doc,
-  runTransaction,
-  serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyB5Anlgv5mLeDIbFfWRP4xE4T-h3RjKuvY",
-  authDomain: "daylisong.firebaseapp.com",
-  projectId: "daylisong",
-  storageBucket: "daylisong.firebasestorage.app",
-  messagingSenderId: "923449327300",
-  appId: "1:923449327300:web:c5698bb6137d2ec1bc9391"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const visitorsRef = doc(db, "stats", "visitors");
-
-const todayEl = document.getElementById("todayVisitors");
-const totalEl = document.getElementById("totalVisitors");
-
-function getTodayKey(){
-  return new Date().toISOString().slice(0,10);
-}
-
-async function updateVisitorCounter(){
-  const todayKey = getTodayKey();
-
-  try{
-    const result = await runTransaction(db, async (transaction)=>{
-      const snap = await transaction.get(visitorsRef);
-
-      let data = snap.exists() ? snap.data() : {};
-      let total = Number(data.totalVisitors || 0);
-      let today = Number(data.todayVisitors || 0);
-      let savedDate = data.currentDate || todayKey;
-
-      if(savedDate !== todayKey){
-        today = 0;
-        savedDate = todayKey;
-      }
-
-      total += 1;
-      today += 1;
-
-      transaction.set(visitorsRef, {
-        totalVisitors: total,
-        todayVisitors: today,
-        currentDate: savedDate,
-        updatedAt: serverTimestamp()
-      }, { merge:true });
-
-      return { total, today };
-    });
-
-    todayEl.textContent = result.today.toLocaleString();
-    totalEl.textContent = result.total.toLocaleString();
-
-  }catch(error){
-    console.warn("Visitor counter error:", error);
-    todayEl.textContent = "—";
-    totalEl.textContent = "—";
-  }
-}
-
-updateVisitorCounter();
-</script>
 
 <script>
 let currentLang = "en";
