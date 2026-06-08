@@ -346,7 +346,21 @@ html[dir="rtl"] .side-menu{
   box-shadow:0 10px 28px rgba(0,0,0,.11);
   text-align:center;
 }
+.song-video{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:18px;
+  display:block;
+}
 
+.month-name{
+  text-align:center;
+  font-size:1.15rem;
+  font-weight:700;
+  margin-top:12px;
+  color:#06365c;
+}
 .card h3{
   margin:0 0 10px;
   font-size:24px;
@@ -534,18 +548,114 @@ footer a{
   <h2 data-en="Monthly Songs" data-he="שירי החודשים">Monthly Songs</h2>
 
   <div class="months">
-    <div class="card"><h3 data-en="January" data-he="ינואר">January</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
-    <div class="card"><h3 data-en="February" data-he="פברואר">February</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
-    <div class="card"><h3 data-en="March" data-he="מרץ">March</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
-    <div class="card"><h3 data-en="April" data-he="אפריל">April</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
-    <div class="card"><h3 data-en="May" data-he="מאי">May</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
-    <div class="card"><h3 data-en="June" data-he="יוני">June</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
-    <div class="card"><h3 data-en="July" data-he="יולי">July</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
-    <div class="card"><h3 data-en="August" data-he="אוגוסט">August</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
-    <div class="card"><h3 data-en="September" data-he="ספטמבר">September</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
-    <div class="card"><h3 data-en="October" data-he="אוקטובר">October</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
-    <div class="card"><h3 data-en="November" data-he="נובמבר">November</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
-    <div class="card"><h3 data-en="December" data-he="דצמבר">December</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
+    <div class="card video-card">
+
+      <video class="song-video" controls preload="metadata">
+        <source src="videos/january.mp4" type="video/mp4">
+      </video>
+
+      <div class="month-name" data-en="January" data-he="January">January</div>
+
+    </div>
+    <div class="card video-card">
+
+      <video class="song-video" controls preload="metadata">
+        <source src="videos/february.mp4" type="video/mp4">
+      </video>
+
+      <div class="month-name" data-en="February" data-he="February">February</div>
+
+    </div>
+    <div class="card video-card">
+
+      <video class="song-video" controls preload="metadata">
+        <source src="videos/march.mp4" type="video/mp4">
+      </video>
+
+      <div class="month-name" data-en="March" data-he="March">March</div>
+
+    </div>
+    <div class="card video-card">
+
+      <video class="song-video" controls preload="metadata">
+        <source src="videos/april.mp4" type="video/mp4">
+      </video>
+
+      <div class="month-name" data-en="April" data-he="April">April</div>
+
+    </div>
+    <div class="card video-card">
+
+      <video class="song-video" controls preload="metadata">
+        <source src="videos/may.mp4" type="video/mp4">
+      </video>
+
+      <div class="month-name" data-en="May" data-he="May">May</div>
+
+    </div>
+    <div class="card video-card">
+
+      <video class="song-video" controls preload="metadata">
+        <source src="videos/june.mp4" type="video/mp4">
+      </video>
+
+      <div class="month-name" data-en="June" data-he="June">June</div>
+
+    </div>
+    <div class="card video-card">
+
+      <video class="song-video" controls preload="metadata">
+        <source src="videos/july.mp4" type="video/mp4">
+      </video>
+
+      <div class="month-name" data-en="July" data-he="July">July</div>
+
+    </div>
+    <div class="card video-card">
+
+      <video class="song-video" controls preload="metadata">
+        <source src="videos/august.mp4" type="video/mp4">
+      </video>
+
+      <div class="month-name" data-en="August" data-he="August">August</div>
+
+    </div>
+    <div class="card video-card">
+
+      <video class="song-video" controls preload="metadata">
+        <source src="videos/september.mp4" type="video/mp4">
+      </video>
+
+      <div class="month-name" data-en="September" data-he="September">September</div>
+
+    </div>
+    <div class="card video-card">
+
+      <video class="song-video" controls preload="metadata">
+        <source src="videos/october.mp4" type="video/mp4">
+      </video>
+
+      <div class="month-name" data-en="October" data-he="October">October</div>
+
+    </div>
+    <div class="card video-card">
+
+      <video class="song-video" controls preload="metadata">
+        <source src="videos/november.mp4" type="video/mp4">
+      </video>
+
+      <div class="month-name" data-en="November" data-he="November">November</div>
+
+    </div>
+    <div class="card video-card">
+
+      <video class="song-video" controls preload="metadata">
+        <source src="videos/december.mp4" type="video/mp4">
+      </video>
+
+      <div class="month-name" data-en="December" data-he="December">December</div>
+
+    </div>
   </div>
 </section>
 
@@ -662,6 +772,21 @@ function resetA11y(){
   a11yBtn.style.opacity = "1";
   a11yBtn.style.visibility = "visible";
 }
+document.querySelectorAll("video").forEach(video=>{
+
+  video.addEventListener("play",()=>{
+
+    document.querySelectorAll("video").forEach(v=>{
+
+      if(v!==video){
+        v.pause();
+      }
+
+    });
+
+  });
+
+});
 </script>
 
 </body>
