@@ -556,18 +556,26 @@ footer a{
   text-decoration:none;font-size:30px;z-index:5002;box-shadow:0 8px 24px rgba(0,0,0,.25);
 }
 
-.romi-section{
-max-width:950px;
-margin:24px auto;
-padding:36px 30px;
-border-radius:30px;
-background:linear-gradient(135deg,#0b7cc5,#00b894);
-color:#fff;
-text-align:center;
-box-shadow:0 18px 50px rgba(0,0,0,.18);
+.romi-banner{
+  width:100%;
+  max-width:1200px;
+  display:block;
+  margin:0 auto;
+  border-radius:24px;
+  box-shadow:0 12px 35px rgba(0,0,0,.18);
 }
-.romi-section h2{color:#fff!important;margin-bottom:18px;}
-.romi-section p{color:#fff!important;line-height:1.9;white-space:pre-line;}
+
+.romi-he{
+  display:none;
+}
+
+html[dir="rtl"] .romi-en{
+  display:none;
+}
+
+html[dir="rtl"] .romi-he{
+  display:block;
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -633,17 +641,16 @@ box-shadow:0 18px 50px rgba(0,0,0,.18);
 </section>
 
 
-<section class="romi-section">
-<h2 data-en="Meet Romi Goldhamer" data-he="הכירו את רומי גולדהמר">Meet Romi Goldhamer</h2>
-<p data-en="Romi Goldhamer is living proof that creativity has no age limit.  At 77+, after a lifetime of music, writing, singing and creativity, Romi continues to dream, invent and start new projects. A musician, poet, singer and performer, he believes that every day is a new opportunity to create something that brings joy to others.  Daily Birthday Song was born from his love of music and from a simple but special desire: to give every person a small moment of happiness, inspiration and celebration on their special day.  His story proves that age and health challenges are never barriers to creativity, new beginnings and pursuing dreams. On the contrary, they can become a source of strength, experience and perspective.  Through music, words and imagination, Romi continues to touch people around the world and remind us that it is never too late to create, inspire and believe in new ideas." data-he="רומי גולדהמר הוא הוכחה חיה לכך שליצירתיות אין גיל.  בגיל 77+, לאחר חיים מלאים במוזיקה, כתיבה, שירה ויצירה, רומי ממשיך לחלום, להמציא ולהתחיל מחדש. מוזיקאי, משורר, זמר ונגן בעברו ובהווה, הוא מאמין שכל יום הוא הזדמנות חדשה ליצור משהו שיביא שמחה לאחרים.  פרויקט Daily Birthday Song נולד מתוך אהבתו למוזיקה ומתוך רצון פשוט אך מיוחד: להעניק לכל אדם רגע קטן של חיוך, השראה ושמחת חיים ביום המיוחד שלו.  סיפורו של רומי מוכיח שגם כאשר החיים מציבים אתגרים, גיל או מצב בריאותי אינם מחסום ליצירה, להתחלות חדשות ולמימוש חלומות. להפך - הם יכולים להיות מקור לכוח, לניסיון ולפרספקטיבה שמעשירים כל יצירה.  דרך המוזיקה, המילים והדמיון, רומי ממשיך לגעת באנשים ברחבי העולם ולהזכיר לכולנו שלעולם לא מאוחר מדי ליצור, לשמח ולהאמין ברעיונות חדשים.">Romi Goldhamer is living proof that creativity has no age limit.
+<section class="section">
 
-At 77+, after a lifetime of music, writing, singing and creativity, Romi continues to dream, invent and start new projects. A musician, poet, singer and performer, he believes that every day is a new opportunity to create something that brings joy to others.
+  <img src="images/ROMIENG.png"
+       class="romi-banner romi-en"
+       alt="Meet Romi Goldhamer">
 
-Daily Birthday Song was born from his love of music and from a simple but special desire: to give every person a small moment of happiness, inspiration and celebration on their special day.
+  <img src="images/ROMIHEB.png"
+       class="romi-banner romi-he"
+       alt="הכירו את רומי גולדהמר">
 
-His story proves that age and health challenges are never barriers to creativity, new beginnings and pursuing dreams. On the contrary, they can become a source of strength, experience and perspective.
-
-Through music, words and imagination, Romi continues to touch people around the world and remind us that it is never too late to create, inspire and believe in new ideas.</p>
 </section>
 
 <section id="songs" class="section">
