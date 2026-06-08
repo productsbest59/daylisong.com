@@ -13,15 +13,13 @@
 
 html{
   scroll-behavior:smooth;
-  min-height:100%;
-  background:#bff4ef url("images/desktopbg.png") center center / 100% 100% no-repeat fixed;
 }
 
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
   color:#07304f;
-  background:#bff4ef url("images/desktopbg.png") center center / 100% 100% no-repeat fixed;
+  background:#bff4ef;
   min-height:100vh;
 }
 
@@ -31,8 +29,10 @@ body::before{
   inset:0;
   width:100vw;
   height:100vh;
+  height:100dvh;
   z-index:-2;
-  background:url("images/desktopbg.png") center center / 100% 100% no-repeat;
+  background:#bff4ef url("images/desktopbg.png") center center / cover no-repeat;
+  pointer-events:none;
 }
 
 
@@ -507,15 +507,8 @@ footer a{
 }
 
 @media(max-width:700px){
-  html,
-  body{
-    background:#bff4ef url("images/mobilebg.png") center top / 100% 100% no-repeat fixed;
-  }
-
   body::before{
-    width:100vw;
-    height:100vh;
-    background:url("images/mobilebg.png") center top / 100% 100% no-repeat;
+    background:#bff4ef url("images/mobilebg.png") center top / 100% 100% no-repeat;
   }
 
   .page{padding:12px}
@@ -573,34 +566,19 @@ footer a{
     min-height:auto;
   }
 }
-@media (max-width:900px) and (orientation:landscape){
-  html,
-  body{
-    background:#bff4ef url("images/desktopbg.png") center center / 100% 100% no-repeat fixed;
-  }
 
+@media (max-width:1100px) and (orientation:landscape){
   body::before{
+    inset:0;
     width:100vw;
     height:100vh;
-    background:url("images/desktopbg.png") center center / 100% 100% no-repeat;
+    height:100dvh;
+    background:#bff4ef url("images/desktopbg.png") center center / cover no-repeat;
   }
 
   .hero{
     min-height:360px;
     padding:22px 8px 14px;
-  }
-
-  .glass{
-    padding:22px 18px;
-  }
-
-  .info-grid{
-    grid-template-columns:repeat(3,1fr);
-    gap:14px;
-  }
-
-  .info-card{
-    min-height:190px;
   }
 }
 </style>
