@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,8 @@
 
 <style>
 *{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
@@ -27,93 +29,269 @@ body::before{
   background:url("images/desktopbg.png") center center / cover no-repeat;
 }
 
+
+/* ===== ACCESSIBILITY MODES - SAFE SYSTEM ===== */
+body.a11y-dark{
+  background:#050505 !important;
+  color:#fff !important;
+}
+
+body.a11y-dark::before{
+  opacity:.18 !important;
+}
+
+body.a11y-dark .glass,
+body.a11y-dark footer,
+body.a11y-dark .card,
+body.a11y-dark .site-header,
+body.a11y-dark .side-menu{
+  background:rgba(0,0,0,.82)!important;
+  color:#fff!important;
+  border:1px solid rgba(255,255,255,.45)!important;
+}
+
+body.a11y-dark a,
+body.a11y-dark h1,
+body.a11y-dark h2,
+body.a11y-dark h3,
+body.a11y-dark p{
+  color:#fff!important;
+}
+
+body.a11y-large{
+  font-size:120%;
+}
+
+body.a11y-readable *{
+  font-family:Arial,Helvetica,sans-serif!important;
+  letter-spacing:.4px;
+  line-height:1.75!important;
+}
+
+body.a11y-bold *{
+  font-weight:800!important;
+}
+
+body.a11y-contrast{
+  background:#000 !important;
+  color:#fff !important;
+  filter:none !important;
+}
+
+body.a11y-contrast::before{
+  display:none !important;
+}
+
+body.a11y-contrast .page{
+  background:#000 !important;
+}
+
+body.a11y-contrast .glass,
+body.a11y-contrast footer,
+body.a11y-contrast .card,
+body.a11y-contrast .site-header,
+body.a11y-contrast .side-menu,
+body.a11y-contrast .a11y-panel{
+  background:#000 !important;
+  color:#fff !important;
+  border:2px solid #fff !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+}
+
+body.a11y-contrast a,
+body.a11y-contrast h1,
+body.a11y-contrast h2,
+body.a11y-contrast h3,
+body.a11y-contrast p,
+body.a11y-contrast .side-menu a{
+  color:#fff !important;
+}
+
+body.a11y-contrast .btn,
+body.a11y-contrast .donate-link{
+  background:#fff !important;
+  color:#000 !important;
+  border:3px solid #ff0 !important;
+}
+
+body.a11y-contrast .accessibility-btn,
+body.a11y-contrast .a11y-panel button,
+body.a11y-contrast .icon-btn,
+body.a11y-contrast .lang-btn,
+body.a11y-contrast .close-menu{
+  background:#fff !important;
+  color:#000 !important;
+  border:3px solid #ff0 !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  filter:none !important;
+}
+
+body.a11y-links a{
+  text-decoration:underline!important;
+  outline:2px dashed #ff9d2e;
+  outline-offset:3px;
+}
+
 .page{
   max-width:1180px;
   margin:auto;
-  padding:24px;
+  padding:18px;
 }
 
-header{
-  display:flex;
+.site-header{
+  position:sticky;
+  top:12px;
+  z-index:1000;
+  height:82px;
+  display:grid;
+  grid-template-columns:70px 1fr 70px;
   align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  padding:18px 24px;
+  padding:10px 18px;
   border-radius:28px;
-  background:rgba(255,255,255,.62);
-  backdrop-filter:blur(10px);
-  box-shadow:0 12px 35px rgba(0,0,0,.12);
+  background:rgba(255,255,255,.68);
+  backdrop-filter:blur(12px);
+  box-shadow:0 12px 35px rgba(0,0,0,.14);
+}
+
+.logo-wrap{
+  text-align:center;
 }
 
 .logo{
-  width:145px;
-  height:auto;
-  display:block;
+  width:118px;
+  max-height:70px;
+  object-fit:contain;
 }
 
-nav{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  flex-wrap:wrap;
-}
-
-nav a,
-.lang-btn,
-.donate-btn{
+.icon-btn{
+  width:48px;
+  height:48px;
   border:0;
-  border-radius:999px;
-  padding:10px 18px;
-  font-weight:700;
-  font-size:15px;
-  text-decoration:none;
+  border-radius:50%;
+  background:#07304f;
+  color:#fff;
+  font-size:24px;
   cursor:pointer;
-}
-
-nav a{
-  color:#07304f;
-  background:rgba(255,255,255,.5);
+  font-weight:800;
 }
 
 .lang-btn{
-  color:#07304f;
+  width:48px;
+  height:48px;
+  border:0;
+  border-radius:50%;
   background:#fff;
+  color:#07304f;
+  font-size:15px;
+  cursor:pointer;
+  font-weight:800;
 }
 
-.donate-btn{
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  z-index:1998;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+}
+
+.menu-overlay.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.side-menu{
+  position:fixed;
+  top:0;
+  left:0;
+  width:min(330px,86vw);
+  height:100vh;
+  background:rgba(255,255,255,.96);
+  z-index:1999;
+  transform:translateX(-105%);
+  transition:.3s;
+  padding:24px;
+  box-shadow:10px 0 35px rgba(0,0,0,.22);
+}
+
+html[dir="rtl"] .side-menu{
+  left:auto;
+  right:0;
+  transform:translateX(105%);
+}
+
+.side-menu.open{
+  transform:translateX(0)!important;
+}
+
+.close-menu{
+  border:0;
+  background:#07304f;
   color:#fff;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.side-menu nav{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:30px;
+}
+
+.side-menu a{
+  color:#07304f;
+  text-decoration:none;
+  font-size:22px;
+  font-weight:800;
+  padding:12px 8px;
+  border-bottom:1px solid rgba(7,48,79,.15);
+}
+
+.side-menu .donate-link{
+  margin-top:12px;
+  text-align:center;
+  border:0;
+  border-radius:999px;
   background:linear-gradient(135deg,#ff9d2e,#ff5f8f);
+  color:#fff;
 }
 
 .hero{
-  margin-top:42px;
-  min-height:520px;
+  min-height:620px;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:60px 22px;
+  padding:60px 12px 30px;
 }
 
-.hero-box{
-  max-width:760px;
-  padding:42px 34px;
+.glass{
+  max-width:780px;
+  padding:44px 34px;
   border-radius:36px;
-  background:rgba(255,255,255,.68);
+  background:rgba(255,255,255,.72);
   backdrop-filter:blur(12px);
   box-shadow:0 18px 50px rgba(0,0,0,.14);
 }
 
 .hero h1{
   margin:0 0 18px;
-  font-size:clamp(42px,6vw,78px);
+  font-size:clamp(40px,6vw,78px);
   line-height:1.02;
   color:#06365c;
 }
 
 .hero p{
   margin:0 auto 28px;
-  max-width:620px;
+  max-width:640px;
   font-size:clamp(18px,2vw,23px);
   line-height:1.55;
 }
@@ -143,18 +321,28 @@ nav a{
   background:#fff;
 }
 
+.section{
+  margin:40px 0;
+  padding:34px 24px;
+}
+
+.section h2{
+  text-align:center;
+  font-size:clamp(32px,4vw,52px);
+  margin:0 0 22px;
+}
+
 .months{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:18px;
-  margin:40px 0;
 }
 
 .card{
   padding:26px 18px;
   min-height:150px;
   border-radius:28px;
-  background:rgba(255,255,255,.72);
+  background:rgba(255,255,255,.76);
   box-shadow:0 10px 28px rgba(0,0,0,.11);
   text-align:center;
 }
@@ -162,7 +350,6 @@ nav a{
 .card h3{
   margin:0 0 10px;
   font-size:24px;
-  color:#07304f;
 }
 
 .card p{
@@ -175,7 +362,7 @@ footer{
   padding:28px;
   text-align:center;
   border-radius:28px 28px 0 0;
-  background:rgba(255,255,255,.65);
+  background:rgba(255,255,255,.72);
 }
 
 footer a{
@@ -196,7 +383,38 @@ footer a{
   background:#07304f;
   color:#fff;
   font-size:24px;
-  z-index:9999;
+  z-index:5000;
+  cursor:pointer;
+  opacity:1 !important;
+  visibility:visible !important;
+  filter:none !important;
+}
+
+.a11y-panel{
+  position:fixed;
+  left:18px;
+  bottom:86px;
+  width:250px;
+  background:#fff;
+  border-radius:22px;
+  padding:16px;
+  box-shadow:0 12px 40px rgba(0,0,0,.25);
+  z-index:5001;
+  display:none;
+  color:#07304f;
+}
+
+.a11y-panel.open{display:block}
+
+.a11y-panel button{
+  width:100%;
+  margin:5px 0;
+  padding:10px;
+  border:0;
+  border-radius:12px;
+  background:#07304f;
+  color:#fff;
+  font-weight:800;
   cursor:pointer;
 }
 
@@ -209,37 +427,31 @@ footer a{
     background:url("images/mobilebg.png") center top / cover no-repeat;
   }
 
-  .page{
-    padding:14px;
-  }
+  .page{padding:12px}
 
-  header{
-    flex-direction:column;
-    padding:16px;
+  .site-header{
+    height:76px;
+    grid-template-columns:58px 1fr 58px;
+    padding:8px 12px;
+    border-radius:24px;
   }
 
   .logo{
-    width:120px;
+    width:104px;
   }
 
-  nav{
-    justify-content:center;
-    gap:8px;
-  }
-
-  nav a,
-  .lang-btn,
-  .donate-btn{
-    font-size:13px;
-    padding:9px 13px;
+  .icon-btn,
+  .lang-btn{
+    width:44px;
+    height:44px;
   }
 
   .hero{
-    min-height:520px;
-    padding:36px 10px;
+    min-height:560px;
+    padding:42px 8px 20px;
   }
 
-  .hero-box{
+  .glass{
     padding:32px 20px;
     border-radius:28px;
   }
@@ -254,8 +466,10 @@ footer a{
     border-radius:22px;
   }
 
-  .card h3{
-    font-size:20px;
+  .card h3{font-size:20px}
+
+  .a11y-panel{
+    width:230px;
   }
 }
 </style>
@@ -263,60 +477,192 @@ footer a{
 
 <body>
 
-<button class="accessibility-btn" aria-label="Accessibility">♿</button>
+<button class="accessibility-btn" id="a11yBtn" aria-label="Accessibility">♿</button>
+
+<div class="a11y-panel" id="a11yPanel">
+  <button onclick="toggleA11y('a11y-dark')" data-en="Dark Mode" data-he="מצב כהה">Dark Mode</button>
+  <button onclick="toggleA11y('a11y-large')" data-en="Large Text" data-he="טקסט גדול">Large Text</button>
+  <button onclick="toggleA11y('a11y-readable')" data-en="Readable Font" data-he="פונט קריא">Readable Font</button>
+  <button onclick="toggleA11y('a11y-bold')" data-en="Bold Text" data-he="טקסט מודגש">Bold Text</button>
+  <button onclick="toggleA11y('a11y-contrast')" data-en="High Contrast" data-he="ניגודיות גבוהה">High Contrast</button>
+  <button onclick="toggleA11y('a11y-links')" data-en="Highlight Links" data-he="הדגשת קישורים">Highlight Links</button>
+  <button onclick="resetA11y()" data-en="Reset" data-he="איפוס">Reset</button>
+</div>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<aside class="side-menu" id="sideMenu">
+  <button class="close-menu" id="closeMenu">×</button>
+  <nav>
+    <a href="#home" data-en="Home" data-he="בית">Home</a>
+    <a href="#songs" data-en="Monthly Songs" data-he="שירי החודשים">Monthly Songs</a>
+    <a href="#about" data-en="About" data-he="אודות">About</a>
+    <a href="#support" data-en="Support" data-he="תמיכה">Support</a>
+    <a href="#contact" data-en="Contact" data-he="צור קשר">Contact</a>
+    <a class="donate-link" href="#support" data-en="Donate ❤️" data-he="תרומה ❤️">Donate ❤️</a>
+  </nav>
+</aside>
 
 <div class="page">
 
-<header>
-  <img class="logo" src="images/logo.png" alt="Daily Birthday Song Logo">
+<header class="site-header">
+  <button class="icon-btn" id="openMenu" aria-label="Menu">☰</button>
 
-  <nav>
-    <a href="#songs">Songs</a>
-    <a href="#about">About</a>
-    <a href="#support">Support</a>
-    <a href="#contact">Contact</a>
-    <button class="lang-btn">HE</button>
-    <a class="donate-btn" href="#support">Donate</a>
-  </nav>
+  <div class="logo-wrap">
+    <img class="logo" src="images/logo.png" alt="Daily Birthday Song Logo">
+  </div>
+
+  <button class="lang-btn" id="langBtn">HE</button>
 </header>
 
-<section class="hero">
-  <div class="hero-box">
-    <h1>A Song for Every Day of the Year</h1>
-    <p>Discover colorful monthly songs and videos inspired by birthdays, joy, music, nature, and special moments.</p>
+<section class="hero" id="home">
+  <div class="glass">
+    <h1 data-en="A Song for Every Day of the Year" data-he="שיר לכל יום בשנה">A Song for Every Day of the Year</h1>
+    <p data-en="Discover colorful monthly songs and videos inspired by birthdays, joy, music, nature, and special moments."
+       data-he="גלו שירים וסרטונים חודשיים בהשראת ימי הולדת, שמחה, מוזיקה, טבע ורגעים מיוחדים.">
+       Discover colorful monthly songs and videos inspired by birthdays, joy, music, nature, and special moments.
+    </p>
 
     <div class="actions">
-      <a class="btn primary" href="#songs">Explore Songs</a>
-      <a class="btn secondary" href="#support">Support The Project</a>
+      <a class="btn primary" href="#songs" data-en="Explore Songs" data-he="לצפייה בשירים">Explore Songs</a>
+      <a class="btn secondary" href="#support" data-en="Support The Project" data-he="תמיכה בפרויקט">Support The Project</a>
     </div>
   </div>
 </section>
 
-<section id="songs" class="months">
-  <div class="card"><h3>January</h3><p>Monthly song coming soon.</p></div>
-  <div class="card"><h3>February</h3><p>Monthly song coming soon.</p></div>
-  <div class="card"><h3>March</h3><p>Monthly song coming soon.</p></div>
-  <div class="card"><h3>April</h3><p>Monthly song coming soon.</p></div>
-  <div class="card"><h3>May</h3><p>Monthly song coming soon.</p></div>
-  <div class="card"><h3>June</h3><p>Monthly song coming soon.</p></div>
-  <div class="card"><h3>July</h3><p>Monthly song coming soon.</p></div>
-  <div class="card"><h3>August</h3><p>Monthly song coming soon.</p></div>
-  <div class="card"><h3>September</h3><p>Monthly song coming soon.</p></div>
-  <div class="card"><h3>October</h3><p>Monthly song coming soon.</p></div>
-  <div class="card"><h3>November</h3><p>Monthly song coming soon.</p></div>
-  <div class="card"><h3>December</h3><p>Monthly song coming soon.</p></div>
+<section id="songs" class="section">
+  <h2 data-en="Monthly Songs" data-he="שירי החודשים">Monthly Songs</h2>
+
+  <div class="months">
+    <div class="card"><h3 data-en="January" data-he="ינואר">January</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
+    <div class="card"><h3 data-en="February" data-he="פברואר">February</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
+    <div class="card"><h3 data-en="March" data-he="מרץ">March</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
+    <div class="card"><h3 data-en="April" data-he="אפריל">April</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
+    <div class="card"><h3 data-en="May" data-he="מאי">May</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
+    <div class="card"><h3 data-en="June" data-he="יוני">June</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
+    <div class="card"><h3 data-en="July" data-he="יולי">July</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
+    <div class="card"><h3 data-en="August" data-he="אוגוסט">August</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
+    <div class="card"><h3 data-en="September" data-he="ספטמבר">September</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
+    <div class="card"><h3 data-en="October" data-he="אוקטובר">October</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
+    <div class="card"><h3 data-en="November" data-he="נובמבר">November</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
+    <div class="card"><h3 data-en="December" data-he="דצמבר">December</h3><p data-en="Monthly song coming soon." data-he="השיר החודשי יעלה בקרוב.">Monthly song coming soon.</p></div>
+  </div>
+</section>
+
+<section id="about" class="section glass">
+  <h2 data-en="About The Project" data-he="על הפרויקט">About The Project</h2>
+  <p data-en="Daily Birthday Song is a joyful music project built around the idea of creating songs and videos for the special moments of the year."
+     data-he="Daily Birthday Song הוא פרויקט מוזיקלי שמח המבוסס על הרעיון של יצירת שירים וסרטונים לרגעים מיוחדים לאורך השנה.">
+     Daily Birthday Song is a joyful music project built around the idea of creating songs and videos for the special moments of the year.
+  </p>
+</section>
+
+<section id="support" class="section glass">
+  <h2 data-en="Support The Music" data-he="תמיכה במוזיקה">Support The Music</h2>
+  <p data-en="The songs are free to enjoy. You can support the creator with a small donation or monthly support."
+     data-he="השירים זמינים להאזנה בחינם. ניתן לתמוך ביוצר באמצעות תרומה קטנה או מנוי חודשי.">
+     The songs are free to enjoy. You can support the creator with a small donation or monthly support.
+  </p>
+  <div class="actions">
+    <a class="btn primary" href="#" data-en="Donate" data-he="תרומה">Donate</a>
+    <a class="btn secondary" href="#" data-en="Monthly Support" data-he="תמיכה חודשית">Monthly Support</a>
+  </div>
+</section>
+
+<section id="contact" class="section glass">
+  <h2 data-en="Contact" data-he="צור קשר">Contact</h2>
+  <p data-en="For collaborations, questions, or support, please contact us."
+     data-he="לשיתופי פעולה, שאלות או תמיכה, ניתן ליצור קשר.">
+     For collaborations, questions, or support, please contact us.
+  </p>
 </section>
 
 <footer>
   <div>
-    <a href="terms.html">Terms</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="accessibility.html">Accessibility</a>
+    <a href="terms.html" data-en="Terms" data-he="תקנון">Terms</a>
+    <a href="privacy.html" data-en="Privacy" data-he="פרטיות">Privacy</a>
+    <a href="accessibility.html" data-en="Accessibility" data-he="נגישות">Accessibility</a>
   </div>
   <p>© Daily Birthday Song · Built by Digital247Now</p>
 </footer>
 
 </div>
+
+<script>
+let currentLang = "en";
+
+const langBtn = document.getElementById("langBtn");
+const openMenu = document.getElementById("openMenu");
+const closeMenu = document.getElementById("closeMenu");
+const sideMenu = document.getElementById("sideMenu");
+const menuOverlay = document.getElementById("menuOverlay");
+const a11yBtn = document.getElementById("a11yBtn");
+const a11yPanel = document.getElementById("a11yPanel");
+
+function setLang(lang){
+  currentLang = lang;
+
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "he" ? "rtl" : "ltr";
+
+  document.querySelectorAll("[data-en]").forEach(el=>{
+    el.innerHTML = el.getAttribute("data-" + lang);
+  });
+
+  langBtn.textContent = lang === "en" ? "HE" : "EN";
+}
+
+langBtn.addEventListener("click", ()=>{
+  setLang(currentLang === "en" ? "he" : "en");
+});
+
+function openSideMenu(){
+  sideMenu.classList.add("open");
+  menuOverlay.classList.add("open");
+}
+
+function closeSideMenu(){
+  sideMenu.classList.remove("open");
+  menuOverlay.classList.remove("open");
+}
+
+openMenu.addEventListener("click", openSideMenu);
+closeMenu.addEventListener("click", closeSideMenu);
+menuOverlay.addEventListener("click", closeSideMenu);
+
+document.querySelectorAll(".side-menu a").forEach(link=>{
+  link.addEventListener("click", closeSideMenu);
+});
+
+a11yBtn.addEventListener("click", ()=>{
+  a11yPanel.classList.toggle("open");
+});
+
+function toggleA11y(cls){
+  document.body.classList.toggle(cls);
+
+  // High contrast must never stack with dark mode, because that can hide controls.
+  if(cls === "a11y-contrast" && document.body.classList.contains("a11y-contrast")){
+    document.body.classList.remove("a11y-dark");
+  }
+
+  if(cls === "a11y-dark" && document.body.classList.contains("a11y-dark")){
+    document.body.classList.remove("a11y-contrast");
+  }
+
+  a11yBtn.style.display = "block";
+  a11yBtn.style.opacity = "1";
+  a11yBtn.style.visibility = "visible";
+}
+
+function resetA11y(){
+  document.body.className = "";
+  a11yPanel.classList.remove("open");
+  a11yBtn.style.display = "block";
+  a11yBtn.style.opacity = "1";
+  a11yBtn.style.visibility = "visible";
+}
+</script>
 
 </body>
 </html>
