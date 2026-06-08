@@ -760,6 +760,9 @@ footer a{
     <a href="privacy.html" data-en="Privacy" data-he="פרטיות">Privacy</a>
     <a href="accessibility.html" data-en="Accessibility" data-he="נגישות">Accessibility</a>
   </div>
+  <div id="visitor-counter" style="text-align:center;font-weight:700;margin-bottom:12px;">
+  👥 Visitors: <span id="visits">...</span>
+</div>
   <p>© Daily Birthday Song · Built by Digital247Now</p>
 </footer>
 
@@ -856,6 +859,16 @@ document.querySelectorAll("video").forEach(video=>{
 
 });
 </script>
-
+<script>
+fetch('https://api.countapi.xyz/hit/daylisong.com/visits')
+  .then(res => res.json())
+  .then(res => {
+    document.getElementById('visits').textContent =
+      res.value.toLocaleString();
+  })
+  .catch(() => {
+    document.getElementById('visits').textContent = '-';
+  });
+</script>
 </body>
 </html>
