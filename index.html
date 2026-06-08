@@ -860,14 +860,14 @@ document.querySelectorAll("video").forEach(video=>{
 });
 </script>
 <script>
-fetch('https://api.countapi.xyz/hit/daylisong.com/visits')
+fetch("https://api.counterapi.dev/v1/daylisong/visits/up")
   .then(res => res.json())
-  .then(res => {
-    document.getElementById('visits').textContent =
-      res.value.toLocaleString();
+  .then(data => {
+    document.getElementById("visits").textContent =
+      Number(data.count || 0).toLocaleString();
   })
   .catch(() => {
-    document.getElementById('visits').textContent = '-';
+    document.getElementById("visits").textContent = "-";
   });
 </script>
 </body>
