@@ -153,13 +153,14 @@ body.a11y-links a{
   z-index:1000;
   height:82px;
   display:grid;
-  grid-template-columns:70px 1fr 70px;
+  grid-template-columns:150px 1fr 150px;
   align-items:center;
   padding:10px 18px;
   border-radius:28px;
-  background:rgba(255,255,255,.68);
-  backdrop-filter:blur(12px);
-  box-shadow:0 12px 35px rgba(0,0,0,.14);
+  background:rgba(5,20,30,.84);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.22);
+  box-shadow:0 14px 40px rgba(0,0,0,.30);
 }
 
 .logo-wrap{
@@ -167,36 +168,37 @@ body.a11y-links a{
 }
 
 .logo{
-  width:118px;
-  max-height:70px;
+  width:122px;
+  max-height:72px;
   object-fit:contain;
+  filter:drop-shadow(0 4px 10px rgba(0,0,0,.22));
 }
 
 .icon-btn{
-  width:48px;
-  height:48px;
-  border:0;
+  width:52px;
+  height:52px;
+  border:1px solid rgba(255,255,255,.45);
   border-radius:50%;
-  background:#07304f;
-  color:#fff;
-  font-size:24px;
+  background:#fff;
+  color:#07304f;
+  font-size:25px;
   cursor:pointer;
   font-weight:800;
+  box-shadow:0 8px 20px rgba(0,0,0,.18);
 }
 
 .lang-btn{
-  min-width:94px;
-  height:44px;
-  padding:0 16px;
-  border:0;
+  min-width:118px;
+  height:50px;
+  padding:0 18px;
+  border:1px solid rgba(255,255,255,.55);
   border-radius:999px;
   background:linear-gradient(135deg,#ffffff,#e9fbff);
   color:#07304f;
-  font-size:14px;
+  font-size:15px;
   cursor:pointer;
   font-weight:800;
-  box-shadow:0 8px 20px rgba(7,48,79,.14);
-  border:1px solid rgba(7,48,79,.12);
+  box-shadow:0 10px 24px rgba(0,0,0,.20);
 }
 
 .menu-overlay{
@@ -482,7 +484,7 @@ footer a{
 
   .site-header{
     height:76px;
-    grid-template-columns:58px 1fr 58px;
+    grid-template-columns:58px 1fr 96px;
     padding:8px 12px;
     border-radius:24px;
   }
@@ -494,10 +496,11 @@ footer a{
   .icon-btn{
     width:44px;
     height:44px;
+    font-size:23px;
   }
 
   .lang-btn{
-    min-width:88px;
+    min-width:92px;
     height:42px;
     font-size:13px;
     padding:0 12px;
