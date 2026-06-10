@@ -652,7 +652,6 @@ html[dir="rtl"] .romi-he{
     <a href="#home" data-en="Home" data-he="בית">Home</a>
     <a href="#songs" data-en="Monthly Songs" data-he="שירי החודשים">Monthly Songs</a>
     <a href="#about" data-en="About" data-he="אודות">About</a>
-    <a href="#support" data-en="Support" data-he="תמיכה">Support</a>
     <a href="#contact" data-en="Contact" data-he="צור קשר">Contact</a>
   </nav>
 </aside>
@@ -679,7 +678,7 @@ html[dir="rtl"] .romi-he{
 
     <div class="actions">
       <a class="btn primary" href="#songs" data-en="Explore Songs" data-he="לצפייה בשירים">Explore Songs</a>
-      <a class="btn secondary" href="#support" data-en="Support The Project" data-he="תמיכה בפרויקט">Support The Project</a>
+      <a class="btn secondary" href="#contact" data-en="Contact Romi" data-he="צור קשר">Contact Romi</a>
       <a class="btn secondary" href="#contact" data-en="Partnerships" data-he="שיתופי פעולה">Partnerships</a>
 </div>
     </div>
@@ -837,20 +836,7 @@ Looking for a personalized song?
        Daily Birthday Song is a joyful music project built around the idea of creating songs and videos for the special moments of the year.
     </p>
   </section>
-
-  <section id="support" class="section glass info-card">
-    <h2 data-en="Support The Music" data-he="תמיכה במוזיקה">Support The Music</h2>
-    <p data-en="The songs are free to enjoy. You can support the creator with a small donation or monthly support."
-       data-he="השירים זמינים להאזנה בחינם. ניתן לתמוך ביוצר באמצעות תרומה קטנה או מנוי חודשי.">
-       The songs are free to enjoy. You can support the creator with a small donation or monthly support.
-    </p>
-    <div class="actions">
-      <a class="btn primary" href="mailto:romigoldh@gmail.com" data-en="Email Romi" data-he="שלח מייל">Email Romi</a>
-      <a class="btn secondary" href="https://wa.me/972545791446" target="_blank" data-en="WhatsApp" data-he="וואטסאפ">WhatsApp</a>
-    </div>
-  </section>
-
-  <section id="contact" class="section glass info-card">
+<section id="contact" class="section glass info-card">
     <h2 data-en="Contact" data-he="צור קשר">Contact</h2>
     <p data-en="For custom songs, partnerships, collaborations or support, contact Romi directly by email or WhatsApp."
 data-he="להזמנת שיר אישי, שיתופי פעולה או תמיכה, ניתן ליצור קשר ישירות עם רומי במייל או בוואטסאפ.">
@@ -906,6 +892,8 @@ function setLang(lang){
 langBtn.addEventListener("click", ()=>{
   setLang(currentLang === "en" ? "he" : "en");
 });
+
+setLang("en");
 
 function openSideMenu(){
   sideMenu.classList.add("open");
