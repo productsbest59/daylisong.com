@@ -3,7 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Birthday Song</title>
+<title>Daily Birthday Song | A Song for Every Day of the Year</title>
+<meta name="description" content="Daily Birthday Song by Romi Goldhamer. Enjoy monthly birthday songs, daily songs, custom songs and special musical creations for birthdays, celebrations and joyful moments.">
+<meta name="keywords" content="Daily Birthday Song, birthday song, custom birthday song, Romi Goldhamer, monthly songs, daily song, birthday music, personalized songs">
+<meta name="author" content="Romi Goldhamer">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://daylisong.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Daily Birthday Song">
+<meta property="og:title" content="Daily Birthday Song | A Song for Every Day of the Year">
+<meta property="og:description" content="Monthly birthday songs, daily songs and custom musical creations by Romi Goldhamer.">
+<meta property="og:url" content="https://daylisong.com/">
+<meta property="og:image" content="https://daylisong.com/images/ROMIENG.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Daily Birthday Song | A Song for Every Day of the Year">
+<meta name="twitter:description" content="Monthly birthday songs, daily songs and custom musical creations by Romi Goldhamer.">
+<meta name="twitter:image" content="https://daylisong.com/images/ROMIENG.png">
 
   
 <link rel="icon" type="image/png" href="images/favicon.png">
@@ -630,17 +647,54 @@ html[dir="rtl"] .side-menu{
 
 footer{
   margin-top:30px;
-  padding:14px 18px;
+  padding:12px 16px;
   text-align:center;
   border-radius:22px 22px 0 0;
   background:rgba(255,255,255,.72);
 }
 
+.footer-line{
+  margin:0;
+  font-size:14px;
+  line-height:1.7;
+  font-weight:700;
+}
+
+.footer-sep{
+  margin:0 7px;
+  opacity:.75;
+}
+
 footer a{
   color:#07304f;
-  font-weight:700;
+  font-weight:800;
   text-decoration:none;
-  margin:0 8px;
+  margin:0 4px;
+}
+
+@media(max-width:700px){
+  footer{
+    padding:12px 14px 18px;
+  }
+
+  .footer-line{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    gap:3px 6px;
+    font-size:13px;
+    line-height:1.45;
+  }
+
+  .footer-line a,
+  .footer-line span{
+    display:inline-block;
+  }
+
+  .footer-sep{
+    margin:0 3px;
+  }
 }
 
 .accessibility-btn{
@@ -836,27 +890,6 @@ html[dir="rtl"] .romi-he{
     content:url("images/ROMIHEB_MOBILE.png");
   }
 
-}
-@media(max-width:700px){
-  footer{
-    padding:12px 14px 18px;
-  }
-
-  .footer-line{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    align-items:center;
-    gap:4px 8px;
-    font-size:13px;
-    line-height:1.45;
-  }
-
-  .footer-line a,
-  .footer-line span{
-    display:inline-block;
-    white-space:nowrap;
-  }
 }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -1129,16 +1162,14 @@ data-he="להזמנת שיר אישי, שיתופי פעולה או תמיכה, 
 <footer>
   <p class="footer-line">
     <a href="terms.html" data-en="Terms" data-he="תקנון">Terms</a>
-    |
+    <span class="footer-sep">|</span>
     <a href="privacy.html" data-en="Privacy" data-he="פרטיות">Privacy</a>
-    |
+    <span class="footer-sep">|</span>
     <a href="accessibility.html" data-en="Accessibility" data-he="נגישות">Accessibility</a>
-    |
-    🌍 <span data-en="Total Visitors:" data-he="סך מבקרים:">Total Visitors:</span>
-    <span id="visits">...</span>
-    |
-    © Daily Birthday Song · Built by
-    <a href="https://www.digital247now.com" target="_blank" rel="noopener">Digital247Now</a>
+    <span class="footer-sep">|</span>
+    <span>🌍 <span data-en="Total Visitors:" data-he="סך מבקרים:">Total Visitors:</span> <span id="visits">...</span></span>
+    <span class="footer-sep">|</span>
+    <span>© Daily Birthday Song · Built by <a href="https://www.digital247now.com" target="_blank" rel="noopener">Digital247Now</a></span>
   </p>
 </footer>
 
@@ -1320,6 +1351,41 @@ fetch("https://api.counterapi.dev/v1/daylisong/visits/up")
   .catch(() => {
     document.getElementById("visits").textContent = "-";
   });
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "Daily Birthday Song",
+      "url": "https://daylisong.com/",
+      "description": "Monthly birthday songs, daily songs and custom musical creations by Romi Goldhamer.",
+      "inLanguage": ["en", "he"]
+    },
+    {
+      "@type": "MusicGroup",
+      "name": "Romi Goldhamer",
+      "url": "https://daylisong.com/",
+      "genre": "Birthday Music",
+      "sameAs": [
+        "https://www.facebook.com/share/1B7YZa4uAp/"
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Daily Birthday Song",
+      "url": "https://daylisong.com/",
+      "creator": {
+        "@type": "Person",
+        "name": "Romi Goldhamer"
+      },
+      "about": "Birthday songs, daily songs, monthly songs and custom songs",
+      "inLanguage": ["en", "he"]
+    }
+  ]
+}
 </script>
 </body>
 </html>
