@@ -185,15 +185,18 @@ body.a11y-links a{
 }
 
 .lang-btn{
-  width:48px;
-  height:48px;
+  min-width:94px;
+  height:44px;
+  padding:0 16px;
   border:0;
-  border-radius:50%;
-  background:#fff;
+  border-radius:999px;
+  background:linear-gradient(135deg,#ffffff,#e9fbff);
   color:#07304f;
-  font-size:15px;
+  font-size:14px;
   cursor:pointer;
   font-weight:800;
+  box-shadow:0 8px 20px rgba(7,48,79,.14);
+  border:1px solid rgba(7,48,79,.12);
 }
 
 .menu-overlay{
@@ -488,10 +491,16 @@ footer a{
     width:104px;
   }
 
-  .icon-btn,
-  .lang-btn{
+  .icon-btn{
     width:44px;
     height:44px;
+  }
+
+  .lang-btn{
+    min-width:88px;
+    height:42px;
+    font-size:13px;
+    padding:0 12px;
   }
 
   .hero{
@@ -642,7 +651,6 @@ html[dir="rtl"] .romi-he{
     <a href="#about" data-en="About" data-he="אודות">About</a>
     <a href="#support" data-en="Support" data-he="תמיכה">Support</a>
     <a href="#contact" data-en="Contact" data-he="צור קשר">Contact</a>
-    <a class="donate-link" href="#support" data-en="Donate ❤️" data-he="תרומה ❤️">Donate ❤️</a>
   </nav>
 </aside>
 
@@ -655,7 +663,7 @@ html[dir="rtl"] .romi-he{
     <img class="logo" src="images/logo.png" alt="Daily Birthday Song Logo">
   </div>
 
-  <button class="lang-btn" id="langBtn">HE</button>
+  <button class="lang-btn" id="langBtn">עברית</button>
 </header>
 
 <section class="hero" id="home">
@@ -862,7 +870,7 @@ data-he="להזמנת שיר אישי, שיתופי פעולה או תמיכה, 
   <div id="visitor-counter" style="text-align:center;font-weight:700;margin-bottom:12px;">
   🌍 Total Visitors: <span id="visits">...</span>
 </div>
-  <p>© Daily Birthday Song · Built by Digital247Now</p>
+  <p>© Daily Birthday Song · Built by <a href="https://www.digital247now.com" target="_blank" rel="noopener">Digital247Now</a></p>
 </footer>
 
 </div>
@@ -889,7 +897,7 @@ function setLang(lang){
     el.innerHTML = el.getAttribute("data-" + lang);
   });
 
-  langBtn.textContent = lang === "en" ? "HE" : "EN";
+  langBtn.textContent = lang === "en" ? "עברית" : "English";
 }
 
 langBtn.addEventListener("click", ()=>{
