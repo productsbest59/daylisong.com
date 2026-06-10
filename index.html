@@ -201,30 +201,62 @@ body.a11y-links a{
 }
 
 .icon-btn{
-  width:52px;
-  height:52px;
-  border:1px solid rgba(255,255,255,.45);
+  width:46px;
+  height:46px;
+  border:3px solid #000;
   border-radius:50%;
-  background:#fff;
-  color:#07304f;
-  font-size:25px;
+  background:linear-gradient(135deg,#ffd54a,#f6c343);
+  color:#000;
+  font-size:21px;
   cursor:pointer;
-  font-weight:800;
-  box-shadow:0 8px 20px rgba(0,0,0,.18);
+  font-weight:900;
+  box-shadow:4px 4px 0 rgba(0,0,0,.25);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  line-height:1;
+  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+.icon-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:6px 6px 0 rgba(0,0,0,.28);
+  filter:saturate(1.08);
+}
+
+.icon-btn:active{
+  transform:translateY(1px);
+  box-shadow:2px 2px 0 rgba(0,0,0,.25);
 }
 
 .lang-btn{
-  min-width:118px;
-  height:50px;
-  padding:0 18px;
-  border:1px solid rgba(255,255,255,.55);
+  min-width:100px;
+  height:44px;
+  padding:0 14px;
+  border:3px solid #000;
   border-radius:999px;
-  background:linear-gradient(135deg,#ffffff,#e9fbff);
-  color:#07304f;
-  font-size:15px;
+  background:linear-gradient(135deg,#8fd3ff,#4fb8ff);
+  color:#000;
+  font-size:14px;
   cursor:pointer;
-  font-weight:800;
-  box-shadow:0 10px 24px rgba(0,0,0,.20);
+  font-weight:900;
+  box-shadow:4px 4px 0 rgba(0,0,0,.25);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  line-height:1;
+  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+.lang-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:6px 6px 0 rgba(0,0,0,.28);
+  filter:saturate(1.08);
+}
+
+.lang-btn:active{
+  transform:translateY(1px);
+  box-shadow:2px 2px 0 rgba(0,0,0,.25);
 }
 
 .menu-overlay{
@@ -775,16 +807,20 @@ footer a{
   }
 
   .icon-btn{
-    width:44px;
-    height:44px;
-    font-size:23px;
+    width:40px;
+    height:40px;
+    font-size:19px;
+    border-width:3px;
+    box-shadow:3px 3px 0 rgba(0,0,0,.25);
   }
 
   .lang-btn{
-    min-width:92px;
-    height:42px;
-    font-size:13px;
-    padding:0 12px;
+    min-width:86px;
+    height:38px;
+    font-size:12px;
+    padding:0 10px;
+    border-width:3px;
+    box-shadow:3px 3px 0 rgba(0,0,0,.25);
   }
 
   .hero{
