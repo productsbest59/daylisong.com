@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Use | Daily Birthday Song</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/favicon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:#07304f;
+  background:#bff4ef;
+  min-height:100vh;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  height:100dvh;
+  z-index:-2;
+  background:#bff4ef url("images/desktopbg.png") center center / cover no-repeat;
+  pointer-events:none;
+}
+.page{
+  max-width:980px;
+  margin:auto;
+  padding:18px;
+}
+.site-header{
+  position:sticky;
+  top:12px;
+  z-index:1000;
+  min-height:82px;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:12px;
+  padding:10px 18px;
+  border-radius:28px;
+  background:rgba(255,255,255,.68);
+  backdrop-filter:blur(12px);
+  box-shadow:0 12px 35px rgba(0,0,0,.14);
+}
+.logo{
+  width:118px;
+  max-height:70px;
+  object-fit:contain;
+}
+.header-left{display:flex;justify-content:flex-start}
+.header-center{text-align:center}
+.header-right{display:flex;justify-content:flex-end;gap:10px}
+.lang-btn,.home-btn{
+  border:0;
+  border-radius:999px;
+  background:#fff;
+  color:#07304f;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:15px;
+  cursor:pointer;
+  font-weight:800;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:48px;
+  padding:0 18px;
+}
+.lang-btn{
+  width:48px;
+  padding:0;
+}
+.glass{
+  margin:34px auto 0;
+  padding:30px 28px;
+  border-radius:30px;
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(12px);
+  box-shadow:0 18px 50px rgba(0,0,0,.14);
+}
+h1{
+  margin:0 0 18px;
+  text-align:center;
+  font-size:clamp(32px,5vw,54px);
+  line-height:1.08;
+  color:#06365c;
+}
+h2{
+  margin:28px 0 10px;
+  font-size:24px;
+  color:#06365c;
+}
+p,li{
+  font-size:17px;
+  line-height:1.7;
+}
+ul{padding-inline-start:24px}
+footer{
+  margin-top:50px;
+  padding:28px;
+  text-align:center;
+  border-radius:28px 28px 0 0;
+  background:rgba(255,255,255,.72);
+}
+footer a{
+  color:#07304f;
+  font-weight:700;
+  text-decoration:none;
+  margin:0 8px;
+}
+.facebook-btn{
+  position:fixed;
+  left:18px;
+  bottom:158px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#1877F2;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:30px;
+  z-index:5003;
+  box-shadow:0 8px 24px rgba(0,0,0,.25);
+}
+.whatsapp-btn{
+  position:fixed;
+  left:18px;
+  bottom:88px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#25D366;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:30px;
+  z-index:5002;
+  box-shadow:0 8px 24px rgba(0,0,0,.25);
+}
+.accessibility-btn{
+  position:fixed;
+  left:18px;
+  bottom:18px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  border:2px solid #fff;
+  background:#07304f;
+  color:#fff;
+  font-size:24px;
+  z-index:5000;
+  cursor:pointer;
+  opacity:1!important;
+  visibility:visible!important;
+  filter:none!important;
+}
+.a11y-panel{
+  position:fixed;
+  left:18px;
+  bottom:86px;
+  width:250px;
+  background:#fff;
+  border-radius:22px;
+  padding:16px;
+  box-shadow:0 12px 40px rgba(0,0,0,.25);
+  z-index:5004;
+  display:none;
+  color:#07304f;
+}
+.a11y-panel.open{display:block}
+.a11y-panel button{
+  width:100%;
+  margin:5px 0;
+  padding:10px;
+  border:0;
+  border-radius:12px;
+  background:#07304f;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  font-weight:800;
+  cursor:pointer;
+}
+body.a11y-dark{
+  background:#050505!important;
+  color:#fff!important;
+}
+body.a11y-dark::before{opacity:.18!important}
+body.a11y-dark .glass,
+body.a11y-dark footer,
+body.a11y-dark .site-header{
+  background:rgba(0,0,0,.82)!important;
+  color:#fff!important;
+  border:1px solid rgba(255,255,255,.45)!important;
+}
+body.a11y-dark a,
+body.a11y-dark h1,
+body.a11y-dark h2,
+body.a11y-dark p,
+body.a11y-dark li{color:#fff!important}
+body.a11y-large{font-size:120%}
+body.a11y-readable *{
+  font-family:Arial,Helvetica,sans-serif!important;
+  letter-spacing:.4px;
+  line-height:1.75!important;
+}
+body.a11y-bold *{font-weight:800!important}
+body.a11y-contrast{
+  background:#000!important;
+  color:#fff!important;
+}
+body.a11y-contrast::before{display:none!important}
+body.a11y-contrast .glass,
+body.a11y-contrast footer,
+body.a11y-contrast .site-header,
+body.a11y-contrast .a11y-panel{
+  background:#000!important;
+  color:#fff!important;
+  border:2px solid #fff!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+}
+body.a11y-contrast a,
+body.a11y-contrast h1,
+body.a11y-contrast h2,
+body.a11y-contrast p,
+body.a11y-contrast li{color:#fff!important}
+body.a11y-contrast .home-btn,
+body.a11y-contrast .lang-btn,
+body.a11y-contrast .accessibility-btn,
+body.a11y-contrast .a11y-panel button{
+  background:#fff!important;
+  color:#000!important;
+  border:3px solid #ff0!important;
+}
+body.a11y-links a{
+  text-decoration:underline!important;
+  outline:2px dashed #ff9d2e;
+  outline-offset:3px;
+}
+@media(max-width:900px){
+  body::before{
+    background:#bff4ef url("images/mobilebg.png") center top / 100% 100% no-repeat;
+  }
+  .page{padding:12px}
+  .site-header{
+    grid-template-columns:1fr auto 1fr;
+    padding:8px 12px;
+    border-radius:24px;
+  }
+  .logo{width:104px}
+  .home-btn{height:44px;padding:0 13px;font-size:14px}
+  .lang-btn{width:44px;height:44px}
+  .glass{padding:24px 18px;border-radius:24px}
+  .a11y-panel{width:230px}
+}
+@media (max-width:1100px) and (orientation:landscape){
+  body::before{
+    background:#bff4ef url("images/desktopbg.png") center center / cover no-repeat;
+  }
+}
+@media (min-width:701px) and (max-width:1024px) and (orientation:portrait){
+  body::before{
+    background:url("images/tabletbg.png") center center / 100% 100% no-repeat;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<a href="https://www.facebook.com/share/1B7YZa4uAp/" target="_blank" class="facebook-btn" aria-label="Facebook">
+  <i class="fab fa-facebook-f"></i>
+</a>
+<a href="https://wa.me/972545791446" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+<button class="accessibility-btn" id="a11yBtn" aria-label="Accessibility">♿</button>
+
+<div class="a11y-panel" id="a11yPanel">
+  <button onclick="toggleA11y('a11y-dark')" data-en="Dark Mode" data-he="מצב כהה">Dark Mode</button>
+  <button onclick="toggleA11y('a11y-large')" data-en="Large Text" data-he="טקסט גדול">Large Text</button>
+  <button onclick="toggleA11y('a11y-readable')" data-en="Readable Font" data-he="פונט קריא">Readable Font</button>
+  <button onclick="toggleA11y('a11y-bold')" data-en="Bold Text" data-he="טקסט מודגש">Bold Text</button>
+  <button onclick="toggleA11y('a11y-contrast')" data-en="High Contrast" data-he="ניגודיות גבוהה">High Contrast</button>
+  <button onclick="toggleA11y('a11y-links')" data-en="Highlight Links" data-he="הדגשת קישורים">Highlight Links</button>
+  <button onclick="resetA11y()" data-en="Reset" data-he="איפוס">Reset</button>
+</div>
+
+<div class="page">
+  <header class="site-header">
+    <div class="header-left">
+      <a class="home-btn" href="index.html" data-en="Home" data-he="דף הבית">Home</a>
+    </div>
+    <div class="header-center">
+      <img class="logo" src="images/logo.png" alt="Daily Birthday Song Logo">
+    </div>
+    <div class="header-right">
+      <button class="lang-btn" id="langBtn">HE</button>
+    </div>
+  </header>
+
+  <main class="glass">
+    <h1 data-en="Terms of Use" data-he="תקנון שימוש">Terms of Use</h1>
+
+    <div class="legal-content" data-en="
+&lt;p&gt;Welcome to Daily Birthday Song. By using this website, watching the videos, listening to the songs or contacting us, you agree to these Terms of Use.&lt;/p&gt;
+&lt;h2&gt;1. About the website&lt;/h2&gt;
+&lt;p&gt;Daily Birthday Song is a creative music project by Romi Goldhamer. The website presents songs, videos, information about the project, contact options and support options.&lt;/p&gt;
+&lt;h2&gt;2. Personal and private use only&lt;/h2&gt;
+&lt;p&gt;The songs, videos, lyrics, music, images and other content on this website are intended for personal, private and non-commercial enjoyment only.&lt;/p&gt;
+&lt;h2&gt;3. No commercial use&lt;/h2&gt;
+&lt;p&gt;You may not use the songs or videos for commercial purposes without prior written permission. This includes, but is not limited to, using the songs or videos in advertisements, paid events, business pages, social media campaigns, products, services, monetized videos, public performances, broadcasts or any other commercial activity.&lt;/p&gt;
+&lt;h2&gt;4. Copyright and ownership&lt;/h2&gt;
+&lt;p&gt;All songs, videos, texts, images, design elements and creative materials on this website belong to their owners and are protected by copyright laws. No ownership rights are transferred to website visitors.&lt;/p&gt;
+&lt;h2&gt;5. Sharing&lt;/h2&gt;
+&lt;p&gt;You may share links to the website for personal and non-commercial purposes, as long as you do not copy, download, edit, sell, re-upload or present the content as your own.&lt;/p&gt;
+&lt;h2&gt;6. Custom songs and collaborations&lt;/h2&gt;
+&lt;p&gt;Requests for custom songs, collaborations or partnerships can be made through the contact options on the website. Any custom project will be subject to separate agreement between the parties.&lt;/p&gt;
+&lt;h2&gt;7. Donations and support&lt;/h2&gt;
+&lt;p&gt;If support or donation options are available, they are voluntary. Payments, if any, may be handled by external payment services. The website is not responsible for issues caused by third-party services.&lt;/p&gt;
+&lt;h2&gt;8. External links&lt;/h2&gt;
+&lt;p&gt;The website may include links to WhatsApp, Facebook, email or other external services. We are not responsible for the content, privacy policy or operation of external websites and platforms.&lt;/p&gt;
+&lt;h2&gt;9. Website availability&lt;/h2&gt;
+&lt;p&gt;We try to keep the website available and working properly, but we do not guarantee that it will always be free of errors, interruptions or technical issues.&lt;/p&gt;
+&lt;h2&gt;10. Changes to these terms&lt;/h2&gt;
+&lt;p&gt;We may update these Terms of Use from time to time. Continued use of the website after changes means acceptance of the updated terms.&lt;/p&gt;
+&lt;h2&gt;11. Contact&lt;/h2&gt;
+&lt;p&gt;For questions about these terms, please contact us by email or WhatsApp through the contact details on the website.&lt;/p&gt;
+" data-he="
+&lt;p&gt;ברוכים הבאים לאתר Daily Birthday Song. השימוש באתר, הצפייה בסרטונים, ההאזנה לשירים או יצירת קשר דרך האתר מהווים הסכמה לתקנון זה.&lt;/p&gt;
+&lt;h2&gt;1. על האתר&lt;/h2&gt;
+&lt;p&gt;Daily Birthday Song הוא פרויקט מוזיקלי יצירתי של רומי גולדהמר. האתר מציג שירים, סרטונים, מידע על הפרויקט, אפשרויות יצירת קשר ואפשרויות תמיכה.&lt;/p&gt;
+&lt;h2&gt;2. שימוש אישי ופרטי בלבד&lt;/h2&gt;
+&lt;p&gt;השירים, הסרטונים, המילים, המוזיקה, התמונות וכל תוכן אחר באתר מיועדים להנאה אישית, פרטית ולא מסחרית בלבד.&lt;/p&gt;
+&lt;h2&gt;3. איסור שימוש מסחרי&lt;/h2&gt;
+&lt;p&gt;אסור להשתמש בשירים או בסרטונים למטרות מסחריות ללא אישור כתוב מראש. האיסור כולל בין היתר שימוש בפרסומות, אירועים בתשלום, עמודים עסקיים, קמפיינים ברשתות חברתיות, מוצרים, שירותים, סרטונים ממומנים, הופעות פומביות, שידורים או כל פעילות מסחרית אחרת.&lt;/p&gt;
+&lt;h2&gt;4. זכויות יוצרים ובעלות&lt;/h2&gt;
+&lt;p&gt;כל השירים, הסרטונים, הטקסטים, התמונות, העיצוב והחומרים היצירתיים באתר שייכים לבעליהם ומוגנים לפי דיני זכויות יוצרים. אין בשימוש באתר העברה של זכויות בעלות כלשהן לגולשים.&lt;/p&gt;
+&lt;h2&gt;5. שיתוף&lt;/h2&gt;
+&lt;p&gt;מותר לשתף קישורים לאתר למטרות אישיות ולא מסחריות, כל עוד לא מעתיקים, מורידים, עורכים, מוכרים, מעלים מחדש או מציגים את התוכן כאילו הוא שלכם.&lt;/p&gt;
+&lt;h2&gt;6. שירים בהתאמה אישית ושיתופי פעולה&lt;/h2&gt;
+&lt;p&gt;ניתן לפנות דרך אפשרויות יצירת הקשר באתר לצורך בקשת שיר אישי, שיתופי פעולה או פרויקטים מיוחדים. כל פרויקט אישי יהיה כפוף להסכמה נפרדת בין הצדדים.&lt;/p&gt;
+&lt;h2&gt;7. תרומות ותמיכה&lt;/h2&gt;
+&lt;p&gt;אם קיימות באתר אפשרויות תמיכה או תרומה, הן נעשות מרצון. תשלומים, ככל שיהיו, עשויים להתבצע באמצעות שירותים חיצוניים. האתר אינו אחראי לתקלות או בעיות שנגרמות על ידי שירותים חיצוניים.&lt;/p&gt;
+&lt;h2&gt;8. קישורים חיצוניים&lt;/h2&gt;
+&lt;p&gt;האתר עשוי לכלול קישורים לוואטסאפ, פייסבוק, אימייל או שירותים חיצוניים אחרים. איננו אחראים לתוכן, למדיניות הפרטיות או לפעילות של אתרים ופלטפורמות חיצוניות.&lt;/p&gt;
+&lt;h2&gt;9. זמינות האתר&lt;/h2&gt;
+&lt;p&gt;אנו משתדלים לשמור על האתר פעיל ותקין, אך איננו מתחייבים שהאתר יהיה זמין תמיד או ללא תקלות, שגיאות או הפסקות שירות.&lt;/p&gt;
+&lt;h2&gt;10. שינויים בתקנון&lt;/h2&gt;
+&lt;p&gt;אנו רשאים לעדכן תקנון זה מעת לעת. המשך שימוש באתר לאחר עדכון התקנון מהווה הסכמה לתנאים המעודכנים.&lt;/p&gt;
+&lt;h2&gt;11. יצירת קשר&lt;/h2&gt;
+&lt;p&gt;לשאלות בנושא התקנון ניתן ליצור קשר דרך המייל או הוואטסאפ המופיעים באתר.&lt;/p&gt;
+">
+      
+<p>Welcome to Daily Birthday Song. By using this website, watching the videos, listening to the songs or contacting us, you agree to these Terms of Use.</p>
+<h2>1. About the website</h2>
+<p>Daily Birthday Song is a creative music project by Romi Goldhamer. The website presents songs, videos, information about the project, contact options and support options.</p>
+<h2>2. Personal and private use only</h2>
+<p>The songs, videos, lyrics, music, images and other content on this website are intended for personal, private and non-commercial enjoyment only.</p>
+<h2>3. No commercial use</h2>
+<p>You may not use the songs or videos for commercial purposes without prior written permission. This includes, but is not limited to, using the songs or videos in advertisements, paid events, business pages, social media campaigns, products, services, monetized videos, public performances, broadcasts or any other commercial activity.</p>
+<h2>4. Copyright and ownership</h2>
+<p>All songs, videos, texts, images, design elements and creative materials on this website belong to their owners and are protected by copyright laws. No ownership rights are transferred to website visitors.</p>
+<h2>5. Sharing</h2>
+<p>You may share links to the website for personal and non-commercial purposes, as long as you do not copy, download, edit, sell, re-upload or present the content as your own.</p>
+<h2>6. Custom songs and collaborations</h2>
+<p>Requests for custom songs, collaborations or partnerships can be made through the contact options on the website. Any custom project will be subject to separate agreement between the parties.</p>
+<h2>7. Donations and support</h2>
+<p>If support or donation options are available, they are voluntary. Payments, if any, may be handled by external payment services. The website is not responsible for issues caused by third-party services.</p>
+<h2>8. External links</h2>
+<p>The website may include links to WhatsApp, Facebook, email or other external services. We are not responsible for the content, privacy policy or operation of external websites and platforms.</p>
+<h2>9. Website availability</h2>
+<p>We try to keep the website available and working properly, but we do not guarantee that it will always be free of errors, interruptions or technical issues.</p>
+<h2>10. Changes to these terms</h2>
+<p>We may update these Terms of Use from time to time. Continued use of the website after changes means acceptance of the updated terms.</p>
+<h2>11. Contact</h2>
+<p>For questions about these terms, please contact us by email or WhatsApp through the contact details on the website.</p>
+
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      <a href="terms.html" data-en="Terms" data-he="תקנון">Terms</a>
+      <a href="privacy.html" data-en="Privacy" data-he="פרטיות">Privacy</a>
+      <a href="accessibility.html" data-en="Accessibility" data-he="נגישות">Accessibility</a>
+    </div>
+    <p>© Daily Birthday Song · Built by Digital247Now</p>
+  </footer>
+</div>
+
+
+<script>
+let currentLang = "en";
+const langBtn = document.getElementById("langBtn");
+const a11yBtn = document.getElementById("a11yBtn");
+const a11yPanel = document.getElementById("a11yPanel");
+
+function setLang(lang){
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "he" ? "rtl" : "ltr";
+  document.querySelectorAll("[data-en]").forEach(el=>{
+    el.innerHTML = el.getAttribute("data-" + lang);
+  });
+  langBtn.textContent = lang === "en" ? "HE" : "EN";
+}
+langBtn.addEventListener("click", ()=>{
+  setLang(currentLang === "en" ? "he" : "en");
+});
+a11yBtn.addEventListener("click", ()=>{
+  a11yPanel.classList.toggle("open");
+});
+function toggleA11y(cls){
+  document.body.classList.toggle(cls);
+  if(cls === "a11y-contrast" && document.body.classList.contains("a11y-contrast")){
+    document.body.classList.remove("a11y-dark");
+  }
+  if(cls === "a11y-dark" && document.body.classList.contains("a11y-dark")){
+    document.body.classList.remove("a11y-contrast");
+  }
+}
+function resetA11y(){
+  document.body.className = "";
+  a11yPanel.classList.remove("open");
+}
+</script>
+
+</body>
+</html>
