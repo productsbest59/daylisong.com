@@ -685,6 +685,23 @@ html[dir="rtl"] .side-menu{
   font-size:17px;
 }
 
+.custom-song-instructions{
+  text-align:start;
+  background:#fff7fb;
+  border:1px solid rgba(7,48,79,.14);
+  border-radius:18px;
+  padding:16px;
+  margin:16px 0;
+  line-height:1.8;
+  font-size:16px;
+}
+
+.custom-song-instructions ul{
+  margin:8px 0 0;
+  padding-inline-start:22px;
+}
+
+
 .close-bank-modal{
   position:absolute;
   top:14px;
@@ -1281,6 +1298,20 @@ data-he="להזמנת שיר אישי, שיתופי פעולה או תמיכה, 
     <button class="close-bank-modal" id="closeBankModal" aria-label="Close">×</button>
     <h2 id="bankModalTitle">Bank Transfer Details</h2>
     <p id="bankModalText">Annual subscription: ₪20 per year. After the transfer, please send confirmation by email or WhatsApp.</p>
+
+    <div class="custom-song-instructions" id="customSongInstructions" style="display:none;">
+      <strong id="customSongInstructionsTitle">Please include the following details:</strong>
+      <ul id="customSongInstructionsList">
+        <li>Preferred musical style</li>
+        <li>Language</li>
+        <li>Who the song is for</li>
+        <li>What the occasion is</li>
+        <li>Preferred content / dedication</li>
+        <li>You may mention a song style based on the monthly examples on the website</li>
+        <li>Photos for the cover image can be sent later by email or WhatsApp</li>
+      </ul>
+    </div>
+
     <div class="bank-details">
       <div><strong data-en="Account Name:" data-he="שם בעל החשבון:">Account Name:</strong> <span>ROMEO GOLDHAMER</span></div>
       <div><strong data-en="Bank:" data-he="בנק:">Bank:</strong> <span data-en="09" data-he="09">09</span></div>
@@ -1310,6 +1341,9 @@ const closeBankModal = document.getElementById("closeBankModal");
 const bankModalOverlay = document.getElementById("bankModalOverlay");
 const bankModalTitle = document.getElementById("bankModalTitle");
 const bankModalText = document.getElementById("bankModalText");
+const customSongInstructions = document.getElementById("customSongInstructions");
+const customSongInstructionsTitle = document.getElementById("customSongInstructionsTitle");
+const customSongInstructionsList = document.getElementById("customSongInstructionsList");
 
 function setLang(lang){
   currentLang = lang;
@@ -1386,13 +1420,37 @@ function openPaymentModal(type){
   if(type === "custom"){
     bankModalTitle.textContent = isHe ? "שיר בהזמנה אישית" : "Custom Song Order";
     bankModalText.textContent = isHe
-      ? "שיר בהזמנה אישית בתשלום סמלי של 40 ש״ח. לאחר ההעברה, נא לשלוח אישור במייל או בווצאפ."
-      : "Custom song order for a symbolic payment of ₪40. After the transfer, please send confirmation by email or WhatsApp.";
+      ? "שיר בהזמנה אישית בתשלום סמלי של 40 ש״ח. לאחר ההעברה, נא לשלוח אישור במייל או בווצאפ יחד עם הפרטים הבאים:"
+      : "Custom song order for a symbolic payment of ₪40. After the transfer, please send confirmation by email or WhatsApp together with the following details:";
+
+    if(customSongInstructions && customSongInstructionsTitle && customSongInstructionsList){
+      customSongInstructions.style.display = "block";
+      customSongInstructionsTitle.textContent = isHe ? "נא לציין:" : "Please include:";
+      customSongInstructionsList.innerHTML = isHe
+        ? `<li>סגנון מוסיקלי מועדף</li>
+           <li>שפה</li>
+           <li>למי מיועד השיר</li>
+           <li>לכבוד מה האירוע</li>
+           <li>תוכן מועדף / הקדשה</li>
+           <li>ניתן לציין סוג שיר על פי דוגמאות החודשים שבאתר</li>
+           <li>תמונה לעטיפה ניתן לשלוח בהמשך במייל או בווצאפ</li>`
+        : `<li>Preferred musical style</li>
+           <li>Language</li>
+           <li>Who the song is for</li>
+           <li>What the occasion is</li>
+           <li>Preferred content / dedication</li>
+           <li>You may mention a song style based on the monthly examples on the website</li>
+           <li>Photos for the cover image can be sent later by email or WhatsApp</li>`;
+    }
   }else{
     bankModalTitle.textContent = isHe ? "פרטי העברה בנקאית" : "Bank Transfer Details";
     bankModalText.textContent = isHe
       ? "מנוי שנתי: 20 ש״ח לשנה. לאחר ההעברה, נא לשלוח אישור במייל או בווצאפ."
       : "Annual subscription: ₪20 per year. After the transfer, please send confirmation by email or WhatsApp.";
+
+    if(customSongInstructions){
+      customSongInstructions.style.display = "none";
+    }
   }
 
   bankModalOverlay.classList.add("open");
