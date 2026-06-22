@@ -687,6 +687,17 @@ html[dir="rtl"] .side-menu{
   font-size:17px;
 }
 
+.bit-details{
+  text-align:start;
+  background:#fff7fb;
+  border:1px solid rgba(7,48,79,.12);
+  border-radius:18px;
+  padding:16px;
+  margin:18px 0;
+  line-height:1.9;
+  font-size:17px;
+}
+
 .custom-song-instructions{
   text-align:start;
   background:#fff7fb;
@@ -1224,7 +1235,7 @@ html[dir="rtl"] .romi-he{
        Help Romi develop the project by purchasing a symbolic annual subscription for only ₪20 per year.
     </p>
     <button class="btn bank-action" type="button" id="openBankModal"
-            data-en="<i class=&quot;fas fa-building-columns&quot;></i> Bank Transfer Details" data-he="<i class=&quot;fas fa-building-columns&quot;></i> פרטי העברה בנקאית"><i class="fas fa-building-columns"></i> Bank Transfer Details</button>
+            data-en="<i class=&quot;fas fa-credit-card&quot;></i> Payment Details" data-he="<i class=&quot;fas fa-credit-card&quot;></i> אפשרויות תשלום"><i class="fas fa-credit-card"></i> Payment Details</button>
   </div>
 
 </section>
@@ -1315,10 +1326,16 @@ data-he="להזמנת שיר אישי, שיתופי פעולה או תמיכה, 
     </div>
 
     <div class="bank-details">
+      <div><strong data-en="Bank Transfer" data-he="העברה בנקאית">Bank Transfer</strong></div>
       <div><strong data-en="Account Name:" data-he="שם בעל החשבון:">Account Name:</strong> <span>ROMEO GOLDHAMER</span></div>
       <div><strong data-en="Bank:" data-he="בנק:">Bank:</strong> <span data-en="09" data-he="09">09</span></div>
       <div><strong data-en="Branch:" data-he="סניף:">Branch:</strong> <span data-en="001" data-he="001">001</span></div>
       <div><strong data-en="Account Number:" data-he="מספר חשבון:">Account Number:</strong> <span data-en="867381901" data-he="867381901">867381901</span></div>
+    </div>
+
+    <div class="bit-details">
+      <div><strong data-en="Payment by Bit App" data-he="תשלום באפליקציית ביט">Payment by Bit App</strong></div>
+      <div><strong data-en="Phone Number:" data-he="מספר טלפון:">Phone Number:</strong> <span>052-5950067</span></div>
     </div>
     <div class="actions">
       <a class="btn email-action" href="mailto:romigoldh@gmail.com" data-en="<i class=&quot;fas fa-envelope&quot;></i> Send Confirmation by Email" data-he="<i class=&quot;fas fa-envelope&quot;></i> שליחת אישור במייל"><i class="fas fa-envelope"></i> Send Confirmation by Email</a>
@@ -1422,8 +1439,8 @@ function openPaymentModal(type){
   if(type === "custom"){
     bankModalTitle.textContent = isHe ? "שיר בהזמנה אישית" : "Custom Song Order";
     bankModalText.textContent = isHe
-      ? "שיר בהזמנה אישית בתשלום סמלי של 40 ש״ח. לאחר ההעברה, נא לשלוח אישור במייל או בווצאפ יחד עם הפרטים הבאים:"
-      : "Custom song order for a symbolic payment of ₪40. After the transfer, please send confirmation by email or WhatsApp together with the following details:";
+      ? "שיר בהזמנה אישית בתשלום סמלי של 40 ש״ח. ניתן לשלם בהעברה בנקאית או באפליקציית ביט. לאחר התשלום, נא לשלוח אישור במייל או בווצאפ יחד עם הפרטים הבאים:"
+      : "Custom song order for a symbolic payment of ₪40. You can pay by bank transfer or Bit app. After payment, please send confirmation by email or WhatsApp together with the following details:";
 
     if(customSongInstructions && customSongInstructionsTitle && customSongInstructionsList){
       customSongInstructions.style.display = "block";
@@ -1445,10 +1462,10 @@ function openPaymentModal(type){
            <li>Photos for the cover image can be sent later by email or WhatsApp</li>`;
     }
   }else{
-    bankModalTitle.textContent = isHe ? "פרטי העברה בנקאית" : "Bank Transfer Details";
+    bankModalTitle.textContent = isHe ? "אפשרויות תשלום" : "Payment Details";
     bankModalText.textContent = isHe
-      ? "מנוי שנתי: 20 ש״ח לשנה. לאחר ההעברה, נא לשלוח אישור במייל או בווצאפ."
-      : "Annual subscription: ₪20 per year. After the transfer, please send confirmation by email or WhatsApp.";
+      ? "מנוי שנתי: 20 ש״ח לשנה. ניתן לשלם בהעברה בנקאית או באפליקציית ביט. לאחר התשלום, נא לשלוח אישור במייל או בווצאפ."
+      : "Annual subscription: ₪20 per year. You can pay by bank transfer or Bit app. After payment, please send confirmation by email or WhatsApp.";
 
     if(customSongInstructions){
       customSongInstructions.style.display = "none";
