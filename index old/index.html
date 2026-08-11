@@ -1519,37 +1519,14 @@ document.querySelectorAll("video").forEach(video=>{
 });
 </script>
 <script>
-// Visitor counter: CounterAPI.dev V1 was discontinued on 2026-08-07.
-// This replacement keeps the previous total at a minimum baseline of 1,600
-// and continues counting globally from there.
-const visitorCounterKey = "daylisong-com-main-visitors-20260811";
-const visitorCounterBase = "https://countapi.mileshilliard.com/api/v1";
-const visitorCounterMinimum = 1600;
-
-fetch(`${visitorCounterBase}/hit/${visitorCounterKey}`, { cache: "no-store" })
-  .then(res => {
-    if (!res.ok) throw new Error("Counter request failed");
-    return res.json();
-  })
-  .then(async data => {
-    let count = Number(data.value || 0);
-
-    // First run after migration: restore the old visible counter baseline.
-    if (count < visitorCounterMinimum) {
-      const setRes = await fetch(
-        `${visitorCounterBase}/set/${visitorCounterKey}?value=${visitorCounterMinimum}`,
-        { cache: "no-store" }
-      );
-      if (!setRes.ok) throw new Error("Counter initialization failed");
-      const setData = await setRes.json();
-      count = Number(setData.value || visitorCounterMinimum);
-    }
-
-    document.getElementById("visits").textContent = count.toLocaleString();
+fetch("https://api.counterapi.dev/v1/daylisong/visits/up")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("visits").textContent =
+      Number(data.count || 0).toLocaleString();
   })
   .catch(() => {
-    // Never show a misleading zero if the external counter is temporarily unavailable.
-    document.getElementById("visits").textContent = "1,600+";
+    document.getElementById("visits").textContent = "-";
   });
 </script>
 
