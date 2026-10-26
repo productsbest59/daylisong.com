@@ -1230,9 +1230,9 @@ html[dir="rtl"] .romi-he{
 
   <div class="card daily-action-card annual-subscription-card">
     <h2 data-en="Annual Subscription" data-he="מנוי שנתי">Annual Subscription</h2>
-    <p data-en="Help Romi develop the project by purchasing a symbolic annual subscription for only ₪20 per year, and receive special songs and creations directly by email or WhatsApp."
-       data-he="עיזרו לרומי לפתח את הפרויקט על ידי רכישת מנוי שנתי בסכום סמלי בסך 20 ש״ח לשנה, ותקבלו שירים ויצירות מיוחדות ישירות למייל או לווצאפ.">
-       Help Romi develop the project by purchasing a symbolic annual subscription for only ₪20 per year.
+    <p data-en="Help Romi develop the project by purchasing a symbolic annual subscription for only ₪30 per year, and receive special songs and creations directly by email or WhatsApp."
+       data-he="עיזרו לרומי לפתח את הפרויקט על ידי רכישת מנוי שנתי בסכום סמלי בסך 30 ש״ח לשנה, ותקבלו שירים ויצירות מיוחדות ישירות למייל או לווצאפ.">
+       Help Romi develop the project by purchasing a symbolic annual subscription for only ₪30 per year.
     </p>
     <button class="btn bank-action" type="button" id="openBankModal"
             data-en="<i class=&quot;fas fa-credit-card&quot;></i> Payment Details" data-he="<i class=&quot;fas fa-credit-card&quot;></i> אפשרויות תשלום"><i class="fas fa-credit-card"></i> Payment Details</button>
@@ -1243,9 +1243,9 @@ html[dir="rtl"] .romi-he{
 <section class="section">
 <div class="glass custom-song-card">
 <h2 data-en="Custom Songs" data-he="שיר בהתאמה אישית">Custom Songs</h2>
-<p data-en="Looking for a personalized song? Romi can create custom songs for birthdays, anniversaries, dedications and special occasions."
-data-he="מחפשים שיר אישי ומיוחד? רומי יכול ליצור שיר בהתאמה אישית לימי הולדת, הקדשות, אירועים ורגעים מיוחדים.">
-Looking for a personalized song?
+<p data-en="Looking for a personalized song? Romi can create custom songs for birthdays, anniversaries, dedications and special occasions — free of charge."
+data-he="מחפשים שיר אישי ומיוחד? רומי יכול ליצור שיר בהתאמה אישית לימי הולדת, הקדשות, אירועים ורגעים מיוחדים — בחינם.">
+Looking for a personalized song? Request a custom song free of charge.
 </p>
 <div class="actions">
 <button class="btn music-action" type="button" id="openCustomSongModal" data-en="<i class=&quot;fas fa-music&quot;></i> Request a Custom Song" data-he="<i class=&quot;fas fa-music&quot;></i> הזמנת שיר אישי"><i class="fas fa-music"></i> Request a Custom Song</button>
@@ -1310,7 +1310,7 @@ data-he="להזמנת שיר אישי, שיתופי פעולה או תמיכה, 
   <div class="bank-modal" role="dialog" aria-modal="true" aria-labelledby="bankModalTitle">
     <button class="close-bank-modal" id="closeBankModal" aria-label="Close">×</button>
     <h2 id="bankModalTitle">Bank Transfer Details</h2>
-    <p id="bankModalText">Annual subscription: ₪20 per year. After the transfer, please send confirmation by email or WhatsApp.</p>
+    <p id="bankModalText">Annual subscription: ₪30 per year. After the transfer, please send confirmation by email or WhatsApp.</p>
 
     <div class="custom-song-instructions" id="customSongInstructions" style="display:none;">
       <strong id="customSongInstructionsTitle">Please include the following details:</strong>
@@ -1439,8 +1439,8 @@ function openPaymentModal(type){
   if(type === "custom"){
     bankModalTitle.textContent = isHe ? "שיר בהזמנה אישית" : "Custom Song Order";
     bankModalText.textContent = isHe
-      ? "שיר בהזמנה אישית בתשלום סמלי של 40 ש״ח. ניתן לשלם בהעברה בנקאית או באפליקציית ביט. לאחר התשלום, נא לשלוח אישור במייל או בווצאפ יחד עם הפרטים הבאים:"
-      : "Custom song order for a symbolic payment of ₪40. You can pay by bank transfer or Bit app. After payment, please send confirmation by email or WhatsApp together with the following details:";
+      ? "שיר בהזמנה אישית בחינם. אין צורך בתשלום. נא לשלוח בקשה במייל או בווצאפ יחד עם הפרטים הבאים:"
+      : "Custom songs are free of charge. No payment is required. Please send your request by email or WhatsApp together with the following details:";
 
     if(customSongInstructions && customSongInstructionsTitle && customSongInstructionsList){
       customSongInstructions.style.display = "block";
@@ -1464,13 +1464,24 @@ function openPaymentModal(type){
   }else{
     bankModalTitle.textContent = isHe ? "אפשרויות תשלום" : "Payment Details";
     bankModalText.textContent = isHe
-      ? "מנוי שנתי: 20 ש״ח לשנה. ניתן לשלם בהעברה בנקאית או באפליקציית ביט. לאחר התשלום, נא לשלוח אישור במייל או בווצאפ."
-      : "Annual subscription: ₪20 per year. You can pay by bank transfer or Bit app. After payment, please send confirmation by email or WhatsApp.";
+      ? "מנוי שנתי: 30 ש״ח לשנה. ניתן לשלם בהעברה בנקאית או באפליקציית ביט. לאחר התשלום, נא לשלוח אישור במייל או בווצאפ."
+      : "Annual subscription: ₪30 per year. You can pay by bank transfer or Bit app. After payment, please send confirmation by email or WhatsApp.";
 
     if(customSongInstructions){
       customSongInstructions.style.display = "none";
     }
   }
+
+  const isCustom = type === "custom";
+  bankModalOverlay.querySelectorAll(".bank-details, .bit-details").forEach(el=>{
+    el.style.display = isCustom ? "none" : "";
+  });
+  bankModalOverlay.querySelector(".email-action").innerHTML = '<i class="fas fa-envelope"></i> ' + (isCustom
+    ? (isHe ? "שליחת בקשה במייל" : "Send Request by Email")
+    : (isHe ? "שליחת אישור במייל" : "Send Confirmation by Email"));
+  bankModalOverlay.querySelector(".whatsapp-action").innerHTML = '<i class="fab fa-whatsapp"></i> ' + (isCustom
+    ? (isHe ? "שליחת בקשה בווצאפ" : "Send Request by WhatsApp")
+    : (isHe ? "שליחת אישור בווצאפ" : "Send Confirmation by WhatsApp"));
 
   bankModalOverlay.classList.add("open");
   bankModalOverlay.setAttribute("aria-hidden","false");
